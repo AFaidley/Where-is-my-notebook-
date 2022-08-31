@@ -14,7 +14,7 @@ router.get('/notes', (req, res) => {
     });
 });
 
-// Adding id to notes so that we can pull it back up- /api/notes:id
+// Adding id to new notes in the database so that index.js fetch can pull the note back up when clicked
 router.post('/notes', (req, res) => {
     fs.readFile('./db/db.json', 'utf-8', (err, data) => {
         if (err) throw err;
@@ -26,6 +26,23 @@ router.post('/notes', (req, res) => {
             if (err) return err;
         });
     });
+    res.end();
+});
+
+router.delete('/notes/:id', (req, res) => {
+
+    // Puts selected id in a new var   
+    const selectId = req.params.id;
+    
+    // Removes note with corresponding id, removing it from the database
+    for (let i = 0; i < db.length; i++) {
+        if (selectId === db[i].id) {
+            db.splice(i, 1);
+            fs.writeFile('./db/db.json', JSON.stringify(db), (err) => {
+                if (err) throw err;
+            });
+        };
+    };
     res.end();
 });
 
