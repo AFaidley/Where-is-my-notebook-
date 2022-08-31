@@ -13,9 +13,11 @@ router.get('/notes', (req, res) => {
 });
 
 // Catch all route to redirect to homepage- index.html as requested in the ReadMe
-router.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../public/index.html'));
-});
+// Had to remove catch all as it was causing an error with my code- Uncaught (in promise) SyntaxError: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+
+// router.get('*', (req, res) => {
+//     res.sendFile(path.join(__dirname, '../public/index.html'));
+// });
 
 // export router 
 module.exports = router;
