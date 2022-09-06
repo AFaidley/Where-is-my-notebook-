@@ -11,8 +11,8 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
-app.use('/', htmlRoute);
 app.use('/api', notesRoute);
+app.use('/', htmlRoute);
 
 // App listening on 3001 port
 app.listen(PORT, () =>
