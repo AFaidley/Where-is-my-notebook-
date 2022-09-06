@@ -14,7 +14,7 @@ This app will allow the user to store notes so that they can keep track of their
 <br>
 Below is a link to my deployed app on Heroku:
 <br>
-https://where-is-my-notebook.herokuapp.com/notes
+https://where-is-my-notebook.herokuapp.com
 
 ## Technology Used
 - Javascript
